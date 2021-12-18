@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="gbk">
+        <title>My test website</title>
+        <style>
+            body{
+                background-image: url("background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            }
+            .Jump-to-Weather{
+                position: relative;
+                top: 150px;
+                text-align: center;
+            }
+            .Show-info{
+                position: relative;
+                top: 70px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            function SomeInfo() {
+                alert("在地址栏最后添加'/show_pic.html有一些好康的'")
+            }
+        </script>
+    </head>
+    <body>
+    <div class="Jump-to-Weather">
+        <a href="weather.html" target="_blank" style="color: black">点我跳转到查看天气</a>
+    </div>
+    <div class="Show-info">
+        <input type="button" title="查看信息" value="查看隐藏的信息" onclick="SomeInfo()">
+    </div>
+    </body>
+</html>
