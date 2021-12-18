@@ -1,38 +1,126 @@
-﻿<!DOCTYPE html>
-<html lang="zh">
-    <head>
-        <meta charset="gbk">
-        <title>My test website</title>
-        <style>
-            body{
-                background-image: url("background.jpg");
-                background-repeat: no-repeat;
-                background-size: cover;
-                font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            }
-            .Jump-to-Weather{
-                position: relative;
-                top: 150px;
-                text-align: center;
-            }
-            .Show-info{
-                position: relative;
-                top: 70px;
-                text-align: center;
-            }
-        </style>
-        <script>
-            function SomeInfo() {
-                alert("在地址栏最后添加'/show_pic.html有一些好康的'")
-            }
-        </script>
-    </head>
-    <body>
-    <div class="Jump-to-Weather">
-        <a href="weather.html" target="_blank" style="color: black">点我跳转到查看天气</a>
-    </div>
-    <div class="Show-info">
-        <input type="button" title="查看信息" value="查看隐藏的信息" onclick="SomeInfo()">
-    </div>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QWeather帮助页面</title>
+    <style>
+        .title{
+            text-align: center;
+            font-family: Manjari,monospace;
+        }
+        .key{
+            position: relative;
+            left: 10%;
+        }
+        .italic{
+            position: relative;
+            color: royalblue;
+        }
+        .split{
+            position: relative;
+            left: 10%;
+        }
+        .password{
+            position: relative;
+            left: 10%;
+        }
+        .require{
+            position: relative;
+            left: 10%;
+        }
+        .run{
+            position: relative;
+            left: 10%;
+        }
+        .music{
+            text-align: center;
+        }
+        .part_title{
+            position: relative;
+            color: purple;
+        }
+        body{
+            position: relative;
+            background-image: url("background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <h2>QWeather帮助页面</h2>
+</div>
+<div class="key">
+    <h3><i>获取key&注册账号</i></h3>
+    <p>
+        1. 前往 https://id.qweather.com/#/register 注册qweather开发者账号<br>
+        <b><i class="italic">1.1 可以完成实名认证注册为个人开发者, 完成后可以获取7天的天气</i></b><br>
+        2. 前往 https://dev.qweather.com/docs/resource/get-key/ 查看如何获取key<br>
+        <i class="italic">注: API key 类型为Web API</i><br>
+        <b><i style="color: lightcyan">至此api key获取已完成</i></b><br>
+    </p>
+</div>
+<div class="split">
+    -----------------------------------------------------------------------------------
+</div>
+<div class="password">
+    <h3><i>获取邮箱登录秘钥(以yeah.net为例)</i></h3>
+    <p>
+        <b><i class="italic">你需要拥有一个yeah.net的邮箱账号</i></b><br>
+        1. 前往 https://mail.yeah.net/ 并登陆<br>
+        2. 依次点击: 设置-> POP3/SMTP/IMAP-> IMAP/SMTP 服务   已关闭|开启-> 继续开启-> (扫描二维码发送短信)-> 我已发送-> 复制显示的秘钥并粘贴到一个txt文件内<br>
+        <b><i style="color: lightcyan">至此获取邮箱登录秘钥已完成</i></b>
+    </p>
+</div>
+<div class="split">
+    -----------------------------------------------------------------------------------
+</div>
+<div class="require">
+    <h3><i>运行程序前准备(windows 为例)</i></h3>
+    <p>
+        <b><i class="part_title">下载项目本体</i></b><br>
+        1.0 前往 https://github.com/MarkusJoe/QWeather/releases 下载最新的release(下载Source Code.zip)<br>
+        1.1 解压到任何你想要的地方, 并打开它, 你可以看到 <i>QWeather.py</i><br>
+       <b><i class="part_title">安装python3.10.x+</i></b><br>
+        2.0 https://www.python.org/downloads/release/python-3101/ 下载Windows installer(64-bit) 并安装<br>
+        -----------------------------------------------------------------------------------
+        <b><i class="part_title">填写配置文件</i></b><br>
+        3.0 你可以看到mail-settings, request-settings, client-settings, only-view-settings<br>
+        <i class="italic">注: 如果在填写配置文件时选项冒号后没有空格必须要手动添加一个空格才能输入数据</i><br>
+        3.1 在mail-settings下找到sender 填写获取秘钥的邮箱账号(例如用xxx@yeah.net获取的秘钥, 就填写xxx@yeah.net)<br>
+        3.2 在mail-settings下找到password 粘贴刚才在txt文件内粘贴的秘钥<br>
+        3.3 在mail-settings下找到server 填写smtp.yeah.net<br>
+        3.4 在request-settings下找到key 填写第一步申请的key秘钥<br>
+        3.4.1 在request-settings下找到mode 如果你是免费版用户直接跳过此步， 如果是个人开发者请将free 改成 dev<br>
+        3.5 在request-settings下找到receiver 填写接受邮件的邮箱可以是一个也可以是多个(不要填错)<br>
+        3.6 在client-settings下找到send-times 并修改发送的时间, 可以自行添加或修改<br>
+        <b><i class="italic">其他选项不要随意更改</i></b><br>
+        -----------------------------------------------------------------------------------<br>
+        <b><i class="part_title">安装所需的库</i></b><br>
+        4.0 (windows)打开QWeather文件夹 在空白处shift + 右键 选择 在此处打开powershell 输入 pip install -r requirements.txt 等待安装完成<br>
+        4.1 (linux/ubuntu) 打开QWeather文件夹, 右键空白处选择在终端中打开, 输入pip3 install -r requirements.txt 等待安装完成<br>
+        <b><i style="color: lightcyan">至此运行前准备已完成</i></b>
+
+    </p>
+</div>
+<div class="split">
+    -----------------------------------------------------------------------------------
+</div>
+<div class="run">
+    <h3><i>运行项目</i></h3>
+    <p>
+        1.0 (windows)打开QWeather文件夹, 在空白处shift + 右键 选择 在此处打开powershell 输入 python QWeather.py<br>
+        2.0 (linux/ubuntu)打开QWeather文件夹, 右键空白处选择在终端中打开, 输入python3 QWeather.py<br>
+        3.0 首次运行QWeather.py 会有进行引导填写城市, 请根据提示完成填写<br>
+        <b><i style="color: lightcyan">至此部署已完成</i></b><br>
+    </p>
+</div>
+<div class="split">
+    -----------------------------------------------------------------------------------
+</div>
+<div class="music">
+    <audio src="Armageddon.mp3" controls>你的浏览器并不支持音频标签</audio>
+</div>
+</body>
 </html>
